@@ -14,11 +14,10 @@ def main():
     repository.bisect("start")
     repository.bisect("good", firstHash)
     message = repository.bisect("bad", secondHash)
-    while (message.startswith("Bisecting:")):
-        message = repository.bisect("bad", secondHash)
-        print(message)
+    message = repository.bisect("bad", secondHash)
+    print(message)
     print("Bisecting finished")
-    print("The bad commit is: " + message)
+    print("The bad commit is: " + message.split("/n")[1])
 
     print(repository.bisect("reset"))
     # repository.cmd("git", "bisect", "start")
